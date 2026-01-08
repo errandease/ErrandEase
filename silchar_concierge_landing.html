@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silchar Student Concierge</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; margin: 0; color: #222; background: #fafafa; }
+    header { background: #0b1a44; color: white; padding: 40px 20px; text-align: center; }
+    header h1 { margin: 0 0 10px; font-size: 36px; }
+    header p { font-size: 18px; max-width: 600px; margin: 0 auto; }
+    .cta-btn { background: #b8860b; padding: 12px 28px; color: white; font-size: 18px; margin-top: 18px; border: none; cursor: pointer; border-radius: 6px; }
+    .section { padding: 60px 20px; max-width: 1000px; margin: auto; }
+    .section h2 { text-align: center; margin-bottom: 20px; font-size: 30px; color: #0b1a44; }
+    .services { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .card { background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.12); padding: 20px; border-radius: 8px; width: 260px; }
+    .card h3 { margin-top: 0; color: #b8860b; }
+    .pricing { background: #0b1a44; color: white; padding: 50px 20px; text-align: center; }
+    .pricing h2 { color: white; }
+    .price-box { background: white; color: #0b1a44; padding: 30px; border-radius: 8px; display: inline-block; margin-top: 20px; min-width: 270px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+    footer { padding: 20px; text-align: center; background: #e8e8e8; font-size: 14px; }
+    form { margin-top: 30px; display: flex; flex-direction: column; width: 100%; max-width: 420px; margin-right: auto; margin-left: auto; }
+    input, textarea { margin-bottom: 12px; padding: 12px; border-radius: 6px; border: 1px solid #ccc; }
+    .submit { background: #b8860b; color: white; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Student Concierge – Silchar</h1>
+  <p>Weekend hassles handled for you. Free up your time. We take care of the small stuff while you focus on what matters.</p>
+  <button class="cta-btn" onclick="scrollToForm()">Get Started</button>
+</header>
+<section class="section">
+  <h2>What We Do</h2>
+  <div class="services">
+    <div class="card"><h3>Errands & Groceries</h3><p>Pickups, drop-offs, market runs, locally sourced essentials.</p></div>
+    <div class="card"><h3>Queues & Form Fill-ups</h3><p>Stand in line, get tickets, complete small admin tasks.</p></div>
+    <div class="card"><h3>Bill Payments</h3><p>Electricity, broadband, hostel dues, library — done on time.</p></div>
+    <div class="card"><h3>Project-Based Help</h3><p>One-off requests handled as needed.</p></div>
+  </div>
+</section>
+<section class="pricing">
+  <h2>Simple Pricing</h2>
+  <div class="price-box">
+    <h3>INR 399 / Month</h3>
+    <p>or pay per task on demand</p>
+  </div>
+</section>
+<section class="section">
+  <h2>Join the Waitlist</h2>
+  <p style="text-align:center">Launching soon in Silchar – enter your details and we will contact you.</p>
+  <form onsubmit="return captureData(event)">
+    <input id="name" type="text" placeholder="Your Name" required />
+    <input id="email" type="email" placeholder="Email Address" required />
+    <textarea id="message" placeholder="Your requirement or query"></textarea>
+    <button class="submit" type="submit">Submit</button>
+  </form>
+  <p id="status" style="text-align:center; margin-top:15px;"></p>
+</section>
+<footer>
+  Made for students in Silchar, Assam. Concierge support for the busy and ambitious.
+</footer>
+<script>
+  function scrollToForm() {
+    document.querySelector('form').scrollIntoView({ behavior: 'smooth' });
+  }
+  function captureData(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    console.log({ name, email, message });
+    document.getElementById('status').innerText = 'Thanks. Your submission has been received.';
+    event.target.reset();
+    return false;
+  }
+</script>
+</body>
+</html>
